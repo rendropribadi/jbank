@@ -25,40 +25,57 @@ public class Account
     {
         // put your code here
     }
-    private void deposit(double amount)
+    private boolean deposit(double amount)
     {
-        // put your code here
+         if (amount < 0){
+            return false;
+        }
+        // jika ada uang masuk maka akan ditambah ke balance
+        else{
+            balance = balance + amount; //menambah variabel balance dengan amount ntuk menambahkan saldo
+            return true;
+        }// put your code here
     }
     public char getAcctType()
     {
         // put your code here
-        return '\0' ;
+        return acctType ;
     }
-    private double getBalance()
+    public double getBalance()
     {
         // put your code here
-        return 0 ;
+        return balance;
     }
     public String getId()
     {
         // put your code here
-        return "" ;
+        return id ;
     }
-    private void setBalance(double amount)
+    public void setBalance(double amount)
     {
         // put your code here
+        this.balance = amount;
     }
     public void setId(String acctId)
     {
         // put your code here
+        this.id = acctId;
     }
-    public void setAcctType()
+    public void setAcctType(char type)
     {
         // put your code here
+      acctType = type;
     }
-    private void withdraw(double amount)
+    private boolean withdraw(double amount)
     {
-        // put your code here
+        if (balance-amount < 0){
+            return false;
+        }
+        // jika tidak, maka nilai pengambilan akan dimasukkan ke balance
+        else{
+            balance = balance - amount;
+            return true;
+        }// put your code here
     }
     
     

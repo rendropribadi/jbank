@@ -1,4 +1,5 @@
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /**
  * Write a description of class Customer here.
  * 
@@ -8,9 +9,13 @@
 public class Customer
 {
     // instance variables - replace the example below with your own
-    private String cityAddress,dataOfBrirth,email,firstName,lastName,streetAddress,phoneNumber,zipOrPostalCode;
+    private String cityAddress,dataOfBrirth,email,firstName,lastName,streetAddress,phoneNumber,cityName,zipOrPostalCode;
     private int custId,numberOfCurrentAccounts;
     private Account accounts = new Account();
+    private Pattern pattern;
+    private Matcher matcher;
+    private static final String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
     /**
      * An example of a method - replace this comment with your own
@@ -33,22 +38,27 @@ public class Customer
     private String getAddress()
     {
         // put your code here
-        return "";
+        return streetAddress+cityName+zipOrPostalCode;
     }
     public Account getAccount()
     {
         // put your code here
         return accounts;
     }
+    public String getName()
+    {
+        // put your code here
+        return lastName + firstName;
+    }
     private int getCustomerId()
     {
         // put your code here
-        return 0;
+        return custId;
     }
     private String getEmail()
     {
         // put your code here
-        return "";
+        return email;
     }
     private String getCustomerName()
     {
@@ -58,32 +68,48 @@ public class Customer
     public int getNumOfAccounts()
     {
         // put your code here
-        return 0;
+        return numberOfCurrentAccounts;
     }
     private String getPhoneNumber()
     {
         // put your code here
-        return "";
+        return phoneNumber;
     }
     private void setAddress(String street, String city, String code)
     {
         // put your code here
-        return ;
+        this.streetAddress = street;
+        this.cityName = city;
+        this.zipOrPostalCode = code;
     }
-    private void setEmail(String emailAddress)
+    public boolean setEmail(String emailAddress)
+    {
+        pattern = Pattern.compile(emailPattern);
+        matcher = pattern.matcher(emailAddress);
+        if (matcher.matches()){
+            email = emailAddress; //mengeset nilai email ke emailAddress
+            return true;
+        }
+        
+        else{
+            return false;
+        }
+    }
+    public void setName(String lname, String fname)
     {
         // put your code here
-        return ;
+       firstName = fname;
+       lastName = lname;
     }
-    private void setCustomerName(String lname, String cfname)
+    public void setAccount(Account name)
     {
         // put your code here
-        return ;
+        accounts = name;
     }
     private void setPhoneNumber(String phoneNum)
     {
         // put your code here
-        return ;
+        this.phoneNumber = phoneNum;
     }
     
 }

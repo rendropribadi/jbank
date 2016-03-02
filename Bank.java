@@ -10,7 +10,10 @@ public class Bank
     // instance variables - replace the example below with your own
         private static double creditIntersRate, investmenInterestRate,premiumInterestRate;
         private static String closeTime, phone, startTime;
-        private static int lastCustID, netCustId;
+        private static int nextID;
+        private static int nextCustID = 0;
+        private static int numOfCurrentCustomer;
+        private static int lastCustID;
         public static int maxNumOfCustomers = 20;
         public static String website, bankName= "JBank", bankaddress =  "1234 JavaStreet, AnyCity, ThisState, 34567";
 
@@ -31,7 +34,7 @@ public class Bank
     public static String getAddress()
     {
         // put your code here
-        return "";
+        return null;
     }
     public static double getCreaditRate()
     {
@@ -46,7 +49,7 @@ public class Bank
     public static String getHoursOfOperation()
     {
         // put your code here
-        return "";
+        return null;
     }
     public static int getLastID()
     {
@@ -61,17 +64,29 @@ public class Bank
     public static String getName()
     {
         // put your code here
-        return "";
+        return null;
+    }
+    public static int getNumOfCurrentCustomers() 
+    {
+        return numOfCurrentCustomer;
     }
     public static int getNextID()
     {
-        // put your code here
-        return 0;
+       if (nextCustID == 0)  {
+            lastCustID = 1000;
+            nextCustID = 1000;
+            return nextCustID;
+        }
+        else {
+            lastCustID = nextCustID;
+            nextCustID = lastCustID + 1;
+            return nextCustID;
+        }
     }
     public static String getWebsite()
     {
         // put your code here
-        return "";
+        return null;
     }
     public static double getPremiumRate()
     {
@@ -81,7 +96,7 @@ public class Bank
     public static String getPhone()
     {
         // put your code here
-        return "";
+        return null;
     }
     public static void setCreaditRate(double rate)
     {

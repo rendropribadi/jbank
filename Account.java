@@ -19,13 +19,13 @@ public class Account
      */
     public Account()
     {
-        // put your code here
+       
     }
     public Account(char type, double amount)
     {
         // put your code here
     }
-    private boolean deposit(double amount)
+    public boolean deposit(double amount)
     {
          if (amount < 0){
             return false;
@@ -39,12 +39,12 @@ public class Account
     public char getAcctType()
     {
         // put your code here
-        return acctType ;
+        return  acctType ;
     }
     public double getBalance()
     {
         // put your code here
-        return balance;
+        return 10.00 ;
     }
     public String getId()
     {
@@ -66,7 +66,7 @@ public class Account
         // put your code here
       acctType = type;
     }
-    private boolean withdraw(double amount)
+    public boolean withdraw(double amount)
     {
         if (balance-amount < 0){
             return false;
@@ -77,6 +77,4 @@ public class Account
             return true;
         }// put your code here
     }
-    
-    
 }

@@ -45,22 +45,27 @@ public class Customer
         // put your code here
         return accounts;
     }
+    public int getCustID()
+    {
+        // put your code here
+        return custId;
+    }
     public String getName()
     {
         // put your code here
         return lastName + firstName;
     }
-    private int getCustomerId()
+    public int getCustomerID()
     {
         // put your code here
         return custId;
     }
-    private String getEmail()
+    public String getEmail()
     {
         // put your code here
         return email;
     }
-    private String getCustomerName()
+    public String getCustomerName()
     {
         // put your code here
         return "";
@@ -70,12 +75,12 @@ public class Customer
         // put your code here
         return numberOfCurrentAccounts;
     }
-    private String getPhoneNumber()
+    public String getPhoneNumber()
     {
         // put your code here
         return phoneNumber;
     }
-    private void setAddress(String street, String city, String code)
+    public void setAddress(String street, String city, String code)
     {
         // put your code here
         this.streetAddress = street;
@@ -106,10 +111,11 @@ public class Customer
         // put your code here
         accounts = name;
     }
-    private void setPhoneNumber(String phoneNum)
+    public void setPhoneNumber(String phoneNum)
     {
         // put your code here
         this.phoneNumber = phoneNum;
     }
+    
     
 }

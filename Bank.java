@@ -9,18 +9,19 @@ public class Bank
 {
     // instance variables - replace the example below with your own
         private static double creditIntersRate, investmenInterestRate,premiumInterestRate;
-        private static String closeTime, phone, startTime;
+        private static String closeTime, startTime;
+        private static int lastCustID = 1000;
+        private static int nextCustID = 1000;
         private static int nextID;
-        private static int nextCustID = 0;
-        private static int numOfCurrentCustomer;
-        private static int lastCustID;
-        public static int maxNumOfCustomers = 20;
-        public static String website, bankName= "JBank", bankaddress =  "1234 JavaStreet, AnyCity, ThisState, 34567";
+        private static int numOfCurrentCustomers;
+        public static int maxNumOfAcctsPerCustomer = 4;
+        public static int MAXNUMBEROFCUSTOMERS = 20;
+        public static String website, bankName= "JBank", phone, bankaddress =  "1234 JavaStreet, AnyCity, ThisState, 34567";
 
     /**
      * Constructor for objects of class Bank
      */
-    public Bank()
+    private Bank()
     {
         // initialise instance variables
     }
@@ -31,11 +32,12 @@ public class Bank
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
+    /*
     public static String getAddress()
     {
         // put your code here
-        return null;
-    }
+        return address;
+    }*/
     public static double getCreaditRate()
     {
         // put your code here
@@ -61,20 +63,26 @@ public class Bank
         // put your code here
         return 0;
     }
+    /*
     public static String getName()
     {
         // put your code here
-        return null;
-    }
+        return  name;
+    }*/
     public static int getNumOfCurrentCustomers() 
     {
-        return numOfCurrentCustomer;
+        return numOfCurrentCustomers;
     }
     public static int getNextID()
     {
        if (nextCustID == 0)  {
             lastCustID = 1000;
             nextCustID = 1000;
+            numOfCurrentCustomers++;
+            return nextCustID;
+        }
+        else if ( numOfCurrentCustomers == MAXNUMBEROFCUSTOMERS ) {
+            nextCustID = 0;
             return nextCustID;
         }
         else {
@@ -107,6 +115,10 @@ public class Bank
         // put your code here
     }
     public static void setPremium(double rate)
+    {
+        // put your code here
+    }
+    public static void setStartTime(int hour, int min)
     {
         // put your code here
     }

@@ -33,5 +33,4 @@ public class Teller
         System.out.println(cetak);
         
     }
-    
 }

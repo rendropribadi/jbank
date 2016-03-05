@@ -51,17 +51,23 @@ public class Bank
     public static String getHoursOfOperation()
     {
         // put your code here
-        return null;
+        return "";
     }
     public static int getLastID()
     {
         // put your code here
         return 0;
     }
+    /*
     public static int getMaxCustomers()
     {
         // put your code here
         return 0;
+    }
+    */
+    public static int getNumOfCurrentCustomers() 
+    {
+        return numOfCurrentCustomers;
     }
     /*
     public static String getName()
@@ -69,10 +75,7 @@ public class Bank
         // put your code here
         return  name;
     }*/
-    public static int getNumOfCurrentCustomers() 
-    {
-        return numOfCurrentCustomers;
-    }
+   
     public static int getNextID()
     {
        if (nextCustID == 0)  {
@@ -94,7 +97,7 @@ public class Bank
     public static String getWebsite()
     {
         // put your code here
-        return null;
+        return website;
     }
     public static double getPremiumRate()
     {
@@ -104,7 +107,7 @@ public class Bank
     public static String getPhone()
     {
         // put your code here
-        return null;
+        return phone;
     }
     public static void setCreaditRate(double rate)
     {

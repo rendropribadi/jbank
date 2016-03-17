@@ -1,23 +1,32 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Account()
-comment0.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
+comment0.text=\r\n\ Method\ Cunstructor\ Account\r\n
 comment1.params=type\ amount
 comment1.target=Account(char,\ double)
+comment1.text=\r\n\ Method\ Cunstructor\ Account\r\n\ @param\ type\ \=\ tipe\ akun\r\n\ @param\ amount\ \=\ banyaknya\ saldo\r\n
 comment2.params=amount
 comment2.target=boolean\ deposit(double)
+comment2.text=\r\n\ Method\ Mutator\ deposit,\ Method\ untuk\ menambah\ saldo\ akhir\ dengan\ jumlah\ uang\ yang\ diinginkan\ \r\n\ @param\ amount\ \=\ banyaknya\ saldo\r\n
 comment3.params=
 comment3.target=char\ getAcctType()
+comment3.text=\r\n\ Method\ Accessor\ getAcctType\r\n\ @return\ ke\ acctType\r\n
 comment4.params=
 comment4.target=double\ getBalance()
+comment4.text=\r\n\ Method\ Accessor\ getBalance\r\n\ @return\ balance\r\n
 comment5.params=
 comment5.target=java.lang.String\ getId()
+comment5.text=\r\n\ Method\ Accessor\ getId\r\n\ @return\ id\r\n
 comment6.params=amount
 comment6.target=void\ setBalance(double)
+comment6.text=\r\n\ Method\ Mutator\ setBalance\r\n\ @param\ amount\ \=\ banyaknya\ saldo\r\n
 comment7.params=acctId
-comment7.target=void\ setId(java.lang.String)
+comment7.target=void\ setID(java.lang.String)
+comment7.text=\r\n\ Method\ Mutator\ setID\r\n
 comment8.params=type
 comment8.target=void\ setAcctType(char)
+comment8.text=\r\n\ Method\ Mutator\ setAcctType\r\n
 comment9.params=amount
 comment9.target=boolean\ withdraw(double)
+comment9.text=\r\n\ Method\ Mutator\ withdraw\ ,\ Method\ yang\ mengeset\ jumlah\ uang\ yang\ didapat\ \r\n
 numComments=10

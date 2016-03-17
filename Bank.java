@@ -1,128 +1,200 @@
-
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.lang.Character;
 /**
  * Write a description of class Bank here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (RENDRO PRIBADI) 
+ * @version (27/022016)
  */
+
+
 public class Bank
 {
-    // instance variables - replace the example below with your own
-        private static double creditIntersRate, investmenInterestRate,premiumInterestRate;
-        private static String closeTime, startTime;
-        private static int lastCustID = 1000;
-        private static int nextCustID = 1000;
-        private static int nextID;
-        private static int numOfCurrentCustomers;
-        public static int maxNumOfAcctsPerCustomer = 4;
-        public static int MAXNUMBEROFCUSTOMERS = 20;
-        public static String website, bankName= "JBank", phone, bankaddress =  "1234 JavaStreet, AnyCity, ThisState, 34567";
-
+    //Deklarasi Variabel creditInterestRate, investmentInterestRate,premiumInterestRate, lastCustID, nextCustID
+    private static double cInterestRate, iInterestRate,pInterestRate;
+    private static int lastCustID;
+    private static int nextID;
+    private static int nextCustID = 0;
+    private static int numOfCurrentCustomer;
+    public static int maxNumOfCustomers = 20;
+    private static String phone;
+    private static Date cTime, sTime;
+    public static String website, Name= "JBANK", Address = "1234 JavaStreet, AnyCity, ThisState, 34567";
+  
     /**
-     * Constructor for objects of class Bank
-     */
-    private Bank()
-    {
-        // initialise instance variables
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    /*
-    public static String getAddress()
-    {
-        // put your code here
-        return address;
-    }*/
-    public static double getCreaditRate()
-    {
-        // put your code here
-        return 0;
-    }
-    public static double getInvestmentRate()
-    {
-        // put your code here
-        return 0;
-    }
-    public static String getHoursOfOperation()
-    {
-        // put your code here
-        return "";
-    }
-    public static int getLastID()
-    {
-        // put your code here
-        return 0;
-    }
-    /*
-    public static int getMaxCustomers()
-    {
-        // put your code here
-        return 0;
-    }
+      * Method Constructor bank
     */
-    public static int getNumOfCurrentCustomers() 
-    {
-        return numOfCurrentCustomers;
+   public Bank() { 
+        
     }
-    /*
-    public static String getName()
-    {
-        // put your code here
-        return  name;
-    }*/
+    
    
-    public static int getNextID()
-    {
+    /**
+     * Method Accessor getAddress
+     * @return ke nilai null
+     */
+    /*public static String getAddress() {
+        return null; //mengembalikan nilai ke null
+    }*/
+    
+     /**
+     * Method Accessor getCreditRate
+     * @return ke nilai 0
+     */
+    public static double getCreditRate() {
+        return 0; //mengembalikan nilai ke 0
+    }
+      /**
+     * Method Accessor getMaxCustomers
+     * @return ke nilai 0
+     */
+    /*public static int getmaxNumOfCustomers() {
+        return 0; //mengembalikan nilai ke 0
+    }*/
+    
+     /**
+     * Method Accessor getName
+     * @return ke nilai null
+     */
+    /*public static String getName() {
+        return null; //mengembalikan nilai ke null
+    }*/
+     /**
+     * Method Accessor getInvestmentRate
+     * @return ke nilai 0
+     */
+    public static double getInvestmentRate() {
+        return 0; //mengembalikan nilai ke 0
+    }
+     /**
+     * Method Accessor getHoursOfOperation
+     * @return ke null
+     */
+    public static String getHoursOfOperation() {
+        Calendar start = new GregorianCalendar();
+        start.set(Calendar.DAY_OF_WEEK, 2);
+        start.set(Calendar.HOUR_OF_DAY, 8);
+        start.set(Calendar.MINUTE, 0);
+        Date sTime = start.getTime();
+        Calendar close = new GregorianCalendar();
+        close.set(Calendar.DAY_OF_WEEK, 6);
+        close.set(Calendar.HOUR_OF_DAY, 17);
+        close.set(Calendar.MINUTE, 0);
+        Date cTime = close.getTime();
+                
+        SimpleDateFormat startclose = new SimpleDateFormat("k:mm");
+        return startclose.format(sTime) + " " + "TO" + " " + startclose.format(cTime);
+    }
+    
+     /**
+     * Method Accessor getLastID
+     * @return ke nilai 0
+     */
+    public static int getLastID() {
+        return 0; //mengembalikan nilai ke 0
+    }
+    /**
+     * Method Accessor getstart time
+     * @return ke nilai stime
+     */
+    public static Date getsTime() {
+        return sTime; //mengembalikan nilai ke 0
+    }
+    /**
+     * Method Accessor getclose time
+     * @return ke nilai ctime
+     */
+    public static Date getcTime() {
+        return cTime; //mengembalikan nilai ke 0
+    }
+    /**
+     * Method Accessor getNumOfCurrentCustomers
+     * @return ke numOfCurrentCustomer
+     */
+    public static int getNumOfCurrentCustomers() {
+        return numOfCurrentCustomer;
+    }
+    /**
+     * Method Accessor getNextID
+     * @return ke nomor customer ID selanjutnya
+    */
+    public static int getNextID() {
        if (nextCustID == 0)  {
             lastCustID = 1000;
             nextCustID = 1000;
-            numOfCurrentCustomers++;
-            return nextCustID;
-        }
-        else if ( numOfCurrentCustomers == MAXNUMBEROFCUSTOMERS ) {
-            nextCustID = 0;
+            
+            numOfCurrentCustomer++;
+            
             return nextCustID;
         }
         else {
             lastCustID = nextCustID;
             nextCustID = lastCustID + 1;
+            
+            numOfCurrentCustomer++;
+            
             return nextCustID;
         }
+    }   
+     /**
+     * Method Accessor getWebsite
+     * @return ke nilai null
+     */
+    public static String getWebsite() {
+        return null; //mengembalikan nilai ke null
+    }    
+     /**
+     * Method Accessor getPremiumRate
+     * @return ke nilai 0
+     */
+    public static double getPremiumRate() {
+        return 0; //mengembalikan nilai ke 0
+    }    
+     /**
+     * Method Accessor getPhone
+     * @return ke nilai null
+     */
+    public static String getPhone() {
+        return null; //mengembalikan nilai ke null
+    }    
+     /**
+     * Method Mutator setCreditRate
+     * @param rate bunga credit
+     */
+    public static void setCreditRate(double rate) {
+        
+    }    
+     /**
+     * Method Mutator setPremiumRate
+     * @param rate bunga investment
+     */
+    public static void setInvestmentRate(double rate) {
+        
+    }   
+     /**
+     * Method Mutator setPremiumRate
+     * @param rate bunga pinjaman
+     */
+    public static void setPremium(double rate) {
+        
+    }  
+    /**
+     * Method Mutator setcTime
+     * @param close time
+     */
+    public static void setcTime(Date cTime) {
+        
+    }   
+    /**
+     * Method Mutator setsTime
+     * @param start time
+     */
+    public static void setsTime(Date sTime) {
+        
     }
-    public static String getWebsite()
-    {
-        // put your code here
-        return website;
-    }
-    public static double getPremiumRate()
-    {
-        // put your code here
-        return 0;
-    }
-    public static String getPhone()
-    {
-        // put your code here
-        return phone;
-    }
-    public static void setCreaditRate(double rate)
-    {
-        // put your code here
-    }
-    public static void setInvestmentRate(double rate)
-    {
-        // put your code here
-    }
-    public static void setPremium(double rate)
-    {
-        // put your code here
-    }
-    public static void setStartTime(int hour, int min)
-    {
-        // put your code here
-    }
+    
 }

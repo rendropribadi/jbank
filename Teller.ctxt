@@ -1,12 +1,8 @@
 #BlueJ class context
-comment0.params=args
-comment0.target=void\ main(java.lang.String[])
-comment0.text=\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ c1.setName("Sanadhi",\ "Sutandi");\r\n\ \ \ \ \ \ \ \ cetak\ \=\ c1.getName();\r\n\ \ \ \ \ \ \ \ Account\ a1\ \=\ new\ Account(),acc;\r\n\ \ \ \ \ \ \ \ Customer\ c1\ \=\ new\ Customer();\r\n\ \ \ \ \ \ \ \ a1.setBalance(101010);\r\n\ \ \ \ \ \ \ \ c1.setAccount\ (a1);\r\n\ \ \ \ \ \ \ \ akun\=c1.getAccount();\r\n\ \ \ \ \ \ \ \ balance\ \=\ akun.getBalance();\r\n\ \ \ \ \ \ \ \ System.out.println(balance);\r\n\ \ \ \ \ \ \ \ System.out.println(cetak);\r\n\ \ \ \ \ \ \ \ \r\n}
-comment1.params=
-comment1.target=Teller()
-comment1.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
-comment2.params=DOB\ fname\ lname
-comment2.target=Customer\ createNewCustomer(java.lang.String,\ java.lang.String,\ java.lang.String)
-comment3.params=customerID
-comment3.target=Customer\ getCustomer(int)
-numComments=4
+comment0.params=
+comment0.target=Teller()
+comment0.text=\r\n\ Class\ teller\ berfungsi\ untuk\ membuat\ objek\ baru\ yang\ berisikan\ nama\ akun\ dan\ balancenya\r\n\ @param\ args\ Arguments\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ Method\ main,\ untuk\ melihat\ nama\ dan\ saldo\ pelanggan\r\n
+numComments=2

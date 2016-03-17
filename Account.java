@@ -2,72 +2,93 @@
 /**
  * Write a description of class Account here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (RENDRO PRIBADI) 
+ * @version (27/022016)
  */
 public class Account
 {
-    // instance variables - replace the example below with your own
-    private char acctType;
-    private double balance;
+    // Deklarasi Variabel acctType, balance
+    public char acctType;
+    public double balance;
     private String id;
+    
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public Account()
-    {
-       
+     * Method Cunstructor Account
+    */
+    public Account() {
+        acctType = 'S';
+        balance = 10.00;
+    }    
+    /**
+     * Method Cunstructor Account
+     * @param type = tipe akun
+     * @param amount = banyaknya saldo
+    */
+    public Account(char type, double amount) {
+        acctType = type;
+        balance = amount;
     }
-    public Account(char type, double amount)
-    {
-        // put your code here
-    }
-    public boolean deposit(double amount)
-    {
+    /**
+     * Method Mutator deposit, Method untuk menambah saldo akhir dengan jumlah uang yang diinginkan 
+     * @param amount = banyaknya saldo
+     */ 
+    public boolean deposit(double amount) {
+        // jika saldo negatif maka menjalankan perintah false
          if (amount < 0){
             return false;
         }
-        // jika ada uang masuk maka akan ditambah ke balance
+        // jika ada uang masuk (saldo positif) maka akan menambah ke nilai balance
         else{
             balance = balance + amount; //menambah variabel balance dengan amount ntuk menambahkan saldo
             return true;
-        }// put your code here
+        }
     }
-    public char getAcctType()
-    {
-        // put your code here
-        return  acctType ;
-    }
-    public double getBalance()
-    {
-        // put your code here
-        return 10.00 ;
-    }
-    public String getId()
-    {
-        // put your code here
-        return id ;
-    }
-    public void setBalance(double amount)
-    {
-        // put your code here
-        this.balance = amount;
-    }
-    public void setId(String acctId)
-    {
-        // put your code here
-        this.id = acctId;
-    }
-    public void setAcctType(char type)
-    {
-        // put your code here
-      acctType = type;
-    }
-    public boolean withdraw(double amount)
-    {
+    /**
+     * Method Accessor getAcctType
+     * @return ke acctType
+    */
+    public char getAcctType() {
+        return acctType; // mengembalikan nilai ke accType
+    }    
+    /**
+     * Method Accessor getBalance
+     * @return balance
+    */
+    public double getBalance() {
+        return balance;  //mengembalikan nilai ke balance
+    }    
+    /**
+     * Method Accessor getId
+     * @return id
+     */
+    public String getId() {
+        return id; //mengembalikan nilai ke Id
+    }    
+    /**
+     * Method Mutator setBalance
+     * @param amount = banyaknya saldo
+    */
+    public void setBalance(double amount) {
+        balance = amount; // mengeset balance pada saldo customer
+    }    
+    /**
+     * Method Mutator setID
+    */
+    public void setID(String acctId) {
+        id = acctId; // mengeset nilai ID ke acctId
+    }    
+    /**
+     * Method Mutator setAcctType
+    */
+    public void setAcctType(char type) {
+        acctType = type; // mengeset nilai acctType ke tipe
+    }   
+     /**
+     * Method Mutator withdraw , Method yang mengeset jumlah uang yang didapat 
+     */
+    public boolean withdraw(double amount) {
+       //Fungsi untuk melakukan pengambilan saldo
+       // jika pengambilan uang menyebabkan balance bernilai negatif maka akan menjalankan perintah false
         if (balance-amount < 0){
             return false;
         }
@@ -75,6 +96,6 @@ public class Account
         else{
             balance = balance - amount;
             return true;
-        }// put your code here
+        }
     }
 }

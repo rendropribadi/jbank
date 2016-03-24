@@ -3,99 +3,105 @@
  * Write a description of class Account here.
  * 
  * @author (RENDRO PRIBADI) 
- * @version (27/022016)
+ * @version (24/03/2016)
  */
 public class Account
 {
-    // Deklarasi Variabel acctType, balance
-    public char acctType;
-    public double balance;
-    private String id;
+    private char acctType;
+    private double balance;
+    private String ID;
     
     /**
-     * Method Cunstructor Account
-    */
-    public Account() {
-        acctType = 'S';
-        balance = 10.00;
-    }    
-    /**
-     * Method Cunstructor Account
-     * @param type = tipe akun
-     * @param amount = banyaknya saldo
-    */
-    public Account(char type, double amount) {
+     * Method Constructor Account
+     * @param type Tipe dari Akun
+     * @param amount Jumlah Nilai Kas
+     */
+    public Account(Customer cust, double amount, char type) {
         acctType = type;
         balance = amount;
+        ID = cust.getCustID()+ "" + type;
     }
-    /**
-     * Method Mutator deposit, Method untuk menambah saldo akhir dengan jumlah uang yang diinginkan 
-     * @param amount = banyaknya saldo
-     */ 
-    public boolean deposit(double amount) {
-        // jika saldo negatif maka menjalankan perintah false
-         if (amount < 0){
-            return false;
-        }
-        // jika ada uang masuk (saldo positif) maka akan menambah ke nilai balance
-        else{
-            balance = balance + amount; //menambah variabel balance dengan amount ntuk menambahkan saldo
-            return true;
-        }
+    
+    public String toString() {
+        System.out.println("Account Type  :   " + acctType);
+        System.out.println("ID            :   " + ID);
+        System.out.println("Balance       :   " + balance);
+        return "";
     }
+    
     /**
-     * Method Accessor getAcctType
-     * @return ke acctType
-    */
-    public char getAcctType() {
-        return acctType; // mengembalikan nilai ke accType
-    }    
-    /**
-     * Method Accessor getBalance
-     * @return balance
-    */
-    public double getBalance() {
-        return balance;  //mengembalikan nilai ke balance
-    }    
-    /**
-     * Method Accessor getId
-     * @return id
+     * Method deposit untuk mendeposit atau menambahkan sejumlah uang ke akun yang bersangkutan
+     * @param amount Jumlah Nilai Kas
      */
-    public String getId() {
-        return id; //mengembalikan nilai ke Id
-    }    
+    public boolean deposit(double amount) {
+        if (amount < 0) {
+            return false;
+        } else {
+            balance += amount;
+            return true;
+        }   
+    }
+    
     /**
-     * Method Mutator setBalance
-     * @param amount = banyaknya saldo
-    */
+     * Method getAcctType Mendapatkan tipe akun
+     * @return Nama tipe akun
+     */
+    public char getAcctType() {
+        return acctType;
+    }
+    
+    /**
+     * Method getBalance Mendapatkan nilai saldo
+     * @return Jumlah uang/balance yang dimiliki sebuah akun
+     */
+    public double getBalance() {
+        return balance;
+    }
+    
+    /**
+     * Method getId Mendapatkan nomor
+     * @return ID dari akun yang bersangkutan
+     */
+    public String getID() {
+        return ID;
+    }
+    
+    /**
+     * Method setBalance Menentukan jumlah uang/balance pada suatu akun 
+     * @param amount Jumlah Nilai Kas yang akan 
+     */
     public void setBalance(double amount) {
-        balance = amount; // mengeset balance pada saldo customer
-    }    
+        balance = amount;
+    }
+    
     /**
-     * Method Mutator setID
-    */
+     * Method setID Menentukan nama ID dari sebuah akun
+     * @param acctID Nama ID Account
+     */
+    /*
     public void setID(String acctId) {
-        id = acctId; // mengeset nilai ID ke acctId
-    }    
+        ID = acctId;
+    }*/
+    
     /**
-     * Method Mutator setAcctType
-    */
+     * Method setAcctType Menentukan tipe akun
+     * @param type Tipe Akun pelanggan
+     */
     public void setAcctType(char type) {
-        acctType = type; // mengeset nilai acctType ke tipe
-    }   
-     /**
-     * Method Mutator withdraw , Method yang mengeset jumlah uang yang didapat 
+        acctType = type;
+    }
+    
+    /**
+     * Method withdraw Mengambil sejumlah uang dari suatu akun 
+     * @param amount Jumlah Nilai Kas
      */
     public boolean withdraw(double amount) {
-       //Fungsi untuk melakukan pengambilan saldo
-       // jika pengambilan uang menyebabkan balance bernilai negatif maka akan menjalankan perintah false
-        if (balance-amount < 0){
+        if (balance-amount < 0) {
             return false;
-        }
-        // jika tidak, maka nilai pengambilan akan dimasukkan ke balance
-        else{
-            balance = balance - amount;
+        } else {
+            balance -= amount;
             return true;
         }
     }
+   
 }

@@ -8,8 +8,8 @@ import java.util.Scanner;
 /**
  * Write a description of class Bank here.
  * 
- * @author (RENDRO PRIBADI) 
- * @version (24/03/2016)
+ * @author Rendro Pribadi
+ * @version 26/02/2016
  */
 
 

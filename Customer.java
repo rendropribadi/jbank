@@ -1,3 +1,11 @@
+/**
+ * Kelas Customer adalah kelas yang digunakan untuk menghasilkan object Customer
+ * dan terdiri dari berbagai metode untuk mengisi berbagai field data diri dari
+ * suatu Customer
+ * @author Rendro Pribadi
+ * @version 26/02/2016
+ */
+
 import java.util.regex.*;
 import java.util.Date;
 import java.util.List;
@@ -5,12 +13,6 @@ import java.util.ArrayList;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
-/**
- * Write a description of class Customer here.
- * 
- * @author (RENDRO PRIBADI) 
- * @version (24/03/2016)
- */
 public class Customer
 {
     private Date DOB;
@@ -83,6 +85,7 @@ public class Customer
         System.out.println("Zip / Postal  :   " + zipOrPostalCode);
         System.out.println("DOB           :   " + ft.format(DOB));
         System.out.println("Account       :");
+        /*
         for (Account a : accounts) {
             if ( a!= null) {
                 switch (a.getAcctType()) {
@@ -97,7 +100,7 @@ public class Customer
                     default : System.out.println("          Belum Membuat");
                 }
             }
-        }
+        }*/
         return "";
         //return firstName +", " + lastName + ", " + DOB;
     }
@@ -105,8 +108,8 @@ public class Customer
     /**
      * Method addAccount Menambahkan objek akun ke suatu customer
      * @param True or False
-     */
-    public boolean addAccount(double balance, char type) {
+    */
+    public boolean addAccount(Account acct) {
         boolean accountAdded = false, sameType = false;
         int index = -1;
         if ( numOfAccounts < 5 ) {
@@ -114,14 +117,14 @@ public class Customer
                 if (accounts[i] == null && index == -1) {
                     index = i;
                 } else if (accounts[i] != null ) {
-                    if (accounts[i].getID().endsWith( Character.toString(type) ) ) {
+                    if (accounts[i].getClass().equals( acct.getClass() )){
                         sameType = true;
                         break;
                     }
                 }
             }
             if (!sameType && index != -1){
-                accounts[index] = new Account (this, balance, type);
+                accounts[index] = acct;
                 accountAdded = true;
                 numOfAccounts++;
                 indexArrayAccount++;
@@ -151,12 +154,28 @@ public class Customer
      * @return Semua akun yang dimiliki suatu Customer
      */
     public Account getAccount(char type) {
+        Account acct = null;
         for (Account a: accounts ) {
-            if ( a.getAcctType() == type ) {
-                return a;
+            switch (type) {
+                case 'S' : if( (a instanceof Savings) && !(a instanceof Investment) ) {
+                    acct = a;
+                }
+                break;
+                case 'L' : if(a instanceof LineOfCredit) {
+                    acct = a;
+                }
+                break;
+                case 'O' : if(a instanceof OverDraftProtect) {
+                    acct = a;
+                }
+                break;
+                case 'I' : if(a instanceof Investment) {
+                    acct = a;
+                }
+                break;
             }   
         }
-        return null;
+        return acct;
     }
     
     /**
@@ -203,7 +222,7 @@ public class Customer
      * Method setAddress mendaftarkan Nama Jalan, Kota, dan Kode Pos untuk Customer
      * @param street Nama Jalan
      * @param city Nama Kota
-     * @param code Nomor Kode Pos
+     * @param code Nomor Kode Posc.
      */
     public void setAddress(String street, String city, String code) {
         stAddress = street;
@@ -272,13 +291,38 @@ public class Customer
      * @param True or False
      */
     public boolean removeAccount(char type) {
+        Account a = null;
         boolean accountRemoved = false;
         for (int i = 0; i<=3; i++) {
-            if ( accounts[i].getAcctType() == type) {
-                accounts[i] = null;
-                indexArrayAccount--;
-                numOfAccounts--;
-                accountRemoved = true;
+            switch (type) {
+                case 'S' : if ( accounts[i] instanceof Savings && !(accounts[i] instanceof Investment)) {
+                    accounts[i] = null;
+                    indexArrayAccount--;
+                    numOfAccounts--;
+                    accountRemoved = true;
+                }
+                break;
+                case 'L' : if ( accounts[i] instanceof LineOfCredit) {
+                    accounts[i] = null;
+                    indexArrayAccount--;
+                    numOfAccounts--;
+                    accountRemoved = true;
+                }
+                break;
+                case 'O' : if ( accounts[i] instanceof OverDraftProtect) {
+                    accounts[i] = null;
+                    indexArrayAccount--;
+                    numOfAccounts--;
+                    accountRemoved = true;
+                }
+                break;
+                case 'I' : if ( accounts[i] instanceof Investment) {
+                    accounts[i] = null;
+                    indexArrayAccount--;
+                    numOfAccounts--;
+                    accountRemoved = true;
+                }
+                break;
             }
             
             if (accounts[i] == null && accountRemoved) {
@@ -292,4 +336,10 @@ public class Customer
         return accountRemoved;
     }
     
+    public void printAllAccounts() {
+        for (Account a : accounts) {
+            if (a!=null)
+                System.out.println(a);
+        }
+    }
 }

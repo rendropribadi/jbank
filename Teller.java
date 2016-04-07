@@ -1,3 +1,8 @@
+/**
+ * Kelas Teller bertindak sebagai kelas utama dari project JBank
+ * @author Rendro Pribadi
+ * @version 26/02/2016
+ */
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -13,12 +18,6 @@ import java.lang.Math;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-/**
- * Write a description of class Account here.
- * 
- * @author (RENDRO PRIBADI) 
- * @version (24/03/2016)
- */
 public class Teller
 {
     private static Date ctime, stime; 
@@ -31,7 +30,30 @@ public class Teller
      * @param args Command-Line Arguments
      */
     public static void main(String[] args) {
-       Bank b = new Bank();
+        Customer c = new Customer("Dito","Augusta");
+        Savings s = new Savings(c,500);
+        s.addDailyInterest(280);
+        Investment i = new Investment(c, 1000, 12);
+        i.addDailyInterest(280);
+        OverDraftProtect o = new OverDraftProtect(c, 1500, s);
+        LineOfCredit l = new LineOfCredit (c, 3000, 1000);
+        c.addAccount(s);
+        c.addAccount(i);
+        c.addAccount(o);
+        c.addAccount(l);
+        System.out.println("Sebelum di Tarik\n");
+        c.printAllAccounts();
+        o.withdraw(1000);
+        o.withdraw(800);
+        l.withdraw(2000);
+        l.withdraw(2000);
+        System.out.println("Setelah di Tarik\n");
+        c.printAllAccounts();
+    }
+    
+    /*
+    public void sessionMod5 () {
+           Bank b = new Bank();
        Scanner s = new Scanner(System.in);
        String input = "",fname,lname,phone,addr,city,email,zip;
        Customer c = null;
@@ -69,7 +91,6 @@ public class Teller
                } 
            } while (!loopState);
            
-
            if(loopState) {
                System.out.print("Masukkan nama depan: ");
                input = s.nextLine();
@@ -123,7 +144,6 @@ public class Teller
               c.setEmail(email);
               c.setPhone(phone);
               c.addAccount(balance, acctType);
-
            } else {
                break;
             }
@@ -140,9 +160,7 @@ public class Teller
             System.out.println("Balance     : " + acc.getBalance());
             System.out.println("ID          : " + acc.getID());
         }
-       
-    }
-    
+    }*/
     /*
     public void sessionMod4 () {
         Customer cust1 = new Customer();
